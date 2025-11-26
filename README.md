@@ -1,50 +1,146 @@
-# Welcome to your Expo app 👋
+📖 UAC Hymnal App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern mobile hymnal application for the United African Church (UAC), built with React Native (Expo).
+The app provides English and Yoruba hymns, clean navigation, offline usage, and a simple user experience for worship and devotion.
 
-## Get started
+✨ Features
 
-1. Install dependencies
+🎵 800+ UAC Hymns
 
-   ```bash
-   npm install
-   ```
+🌍 Dual Language Support – English & Yoruba
 
-2. Start the app
+📖 Offline Access – Hymns stored locally in JSON
 
-   ```bash
-   npx expo start
-   ```
+🔎 Fast Hymn Search (Optional)
 
-In the output, you'll find options to open the app in a
+🎨 Modern UI – Clean, simple, and church-themed
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+🌑 Splash Screen & Onboarding
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+🔄 Language Selector page
 
-## Get a fresh project
+📄 Detailed Hymn View with verses and passages
 
-When you're ready, run:
+🚀 Built with Expo for cross-platform support
 
-```bash
-npm run reset-project
-```
+📂 Project Structure
+UAC-Hymnal-App/
+│
+├── assets/
+│   ├── hymns.json      # Combined English & Yoruba hymn dataset
+│   ├── images/
+│   │   └── icon1.jpg   # App logo
+│   └── fonts/          # (optional)
+│
+├── components/
+│   ├── HymnList.tsx
+│   ├── HymnDetail.tsx
+│   ├── LanguageSelector.tsx
+│   ├── OnboardingScreen.tsx
+│   └── SplashScreen.tsx
+│
+├── app/
+│   ├── index.tsx
+│   ├── _layout.tsx
+│   └── (screens)...
+│
+├── package.json
+└── README.md
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+📦 Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/yourusername/UAC-Hymnal-App.git
+cd UAC-Hymnal-App
 
-## Learn more
+2️⃣ Install dependencies
+npm install
 
-To learn more about developing your project with Expo, look at the following resources:
+3️⃣ Start Expo development server
+npx expo start
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+Scan the QR code using the Expo Go app on your mobile device.
 
-Join our community of developers creating universal apps.
+📘 Hymn Data Structure
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The app uses a local JSON file:
+
+📄 assets/hymns.json
+
+{
+  "id": 1,
+  "title_english": "God is love, His mercy abounds",
+  "title_yoruba": "Ife l‘Olorun, aanu Re,",
+  "passage_english": "1 JOHN 4:7",
+  "passage_yoruba": "1 JOHANU 4:7",
+  "verses_english": [
+    "1. God is love, His mercy abounds...",
+    "2. Death is virulently hostile...",
+    "3. When the darkness overwhelmed us..."
+  ],
+  "verses_yoruba": [
+    "1. Ife l’Olorun, aanu Re...",
+    "2. Iku n doro pupopupo...",
+    "3. Lakoko t’o dab’o sokun..."
+  ]
+}
+
+📱 Screens Included
+✔ Splash Screen
+
+Displays logo and app branding.
+
+✔ Onboarding Screens
+
+Simple introduction, swipe/next.
+
+✔ Language Selector
+
+Choose English or Yoruba.
+
+✔ Hymn List
+
+Shows all hymns in number order.
+
+✔ Hymn Details
+
+Full hymn text with passages and verses.
+
+🎨 Styling Guidelines
+
+Primary Color: #8B0000 (Deep Red)
+
+Secondary Color: #000080 (Navy Blue)
+
+Background: #D3D3D3 (Light Gray)
+
+Typography: Clean sans serif + Georgia italic (optional)
+
+🚀 Build for Production
+Android APK:
+npx expo build:android
+
+iOS Build (Mac required):
+npx expo build:ios
+
+Expo EAS:
+eas build --platform android
+eas build --platform ios
+
+🤝 Contributions
+
+Pull requests are welcome!
+Feel free to submit improvements, new features, UI enhancements, or bug fixes.
+
+📜 License
+
+This project is made for the UAC Church Community.
+All rights reserved unless otherwise stated.
+
+🙏 Credits
+
+Developed by Ogundele Oluwatobiloba Razaq
+
+Hymnal data sourced from UAC Hymn Book and arranged by Ajilore Oluwakemi
+
+App powered by React Native + Expo
