@@ -1,6 +1,6 @@
 📖 UAC Hymnal App
 
-A modern mobile hymnal application for the United African Church (UAC), built with React Native (Expo).
+A modern mobile hymnal application for the United Apostolic Church (UAC), built with React Native (Expo).
 The app provides English and Yoruba hymns, clean navigation, offline usage, and a simple user experience for worship and devotion.
 
 ✨ Features

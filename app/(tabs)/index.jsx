@@ -6,58 +6,87 @@ import LanguageSelector from '../../components/LanguageSelector';
 import HymnList from '../../components/HymnList';
 import HymnDetail from '../../components/HymnDetails';
 
-
 export default function HomeScreen() {
-  const [appState, setAppState] = useState({ screen: 'splash' });
+  const [appState, setAppState] = useState({
+    screen: 'splash',
+    language: null,
+    hymn: null,
+  });
 
   const renderScreen = () => {
     switch (appState.screen) {
-      case 'splash':
-        return <SplashScreen onFinish={() => setAppState({ screen: 'onboarding1' })} />;
 
+      /** SPLASH */
+      case 'splash':
+        return (
+          <SplashScreen
+            onFinish={() => setAppState({ ...appState, screen: 'onboarding1' })}
+          />
+        );
+
+      /** ONBOARDING 1 */
       case 'onboarding1':
         return (
           <OnboardingScreen
             message="Let's Rejoice"
             isLast={false}
-            onNext={() => setAppState({ screen: 'onboarding2' })}
+            onNext={() => setAppState({ ...appState, screen: 'onboarding2' })}
           />
         );
 
+      /** ONBOARDING 2 */
       case 'onboarding2':
         return (
           <OnboardingScreen
             message="Be Glad!"
             isLast={true}
-            onNext={() => setAppState({ screen: 'language' })}
+            onNext={() => setAppState({ ...appState, screen: 'language' })}
           />
         );
 
+      /** LANGUAGE SELECTION */
       case 'language':
         return (
           <LanguageSelector
-            onSelectLanguage={(language) => setAppState({ screen: 'hymnList', language })}
+            onSelectLanguage={(language) =>
+              setAppState({ ...appState, screen: 'hymnList', language })
+            }
           />
         );
 
+      /** HYMN LIST */
       case 'hymnList':
         return (
           <HymnList
             language={appState.language}
-            onSelectHymn={(hymn) => setAppState({ screen: 'hymnDetail', hymn })}
+            onSelectHymn={(hymn) =>
+              setAppState({ ...appState, screen: 'hymnDetail', hymn })
+            }
+            onBack={() => setAppState({ ...appState, screen: 'language' })}
           />
         );
 
+      /** HYMN DETAIL */
       case 'hymnDetail':
         return (
           <HymnDetail
             hymn={appState.hymn}
-            onBack={() => setAppState({ screen: 'hymnList', language: appState.hymn.language })}
+            language={appState.language}
+            onBack={() =>
+              setAppState({
+                ...appState,
+                screen: 'hymnList',
+              })
+            }
           />
         );
 
       default:
-        return <SplashScreen onFinish={() => setAppState({ screen: 'onboarding1' })} />;
+        return (
+          <SplashScreen
+            onFinish={() => setAppState({ ...appState, screen: 'onboarding1' })}
+          />
+        );
     }
   };
 
