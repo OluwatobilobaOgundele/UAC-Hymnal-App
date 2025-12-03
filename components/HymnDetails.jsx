@@ -5,6 +5,8 @@ export default function HymnDetail({ hymn, language, onBack }) {
   const title =
     language === 'english' ? hymn.title_english : hymn.title_yoruba;
 
+     const tunes =hymn.title_tune;
+
   const passage =
     language === 'english' ? hymn.passage_english : hymn.passage_yoruba;
 
@@ -25,6 +27,9 @@ export default function HymnDetail({ hymn, language, onBack }) {
       {/* CONTENT */}
       <ScrollView style={styles.content} contentContainerStyle={styles.contentContainer}>
         <Text style={styles.title}>{title}</Text>
+         {tunes ? (
+          <Text style={styles.passage}>{tunes}</Text>
+        ) : null}
 
         {passage ? (
           <Text style={styles.passage}>{passage}</Text>

@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#8B0000',
-    paddingVertical: 14,
+    paddingTop: 30,
     paddingHorizontal: 16,
   },
   backButton: { marginRight: 16 },

@@ -139,7 +139,9 @@ All rights reserved unless otherwise stated.
 
 🙏 Credits
 
-Developed by Ogundele Oluwatobiloba Razaq
+Developed by  Oluwatobiloba Razaq Ogundele
+
+Hymns Media collected from Ajilore Benjanmi
 
 Hymnal data sourced from UAC Hymn Book and arranged by Ajilore Oluwakemi
 
