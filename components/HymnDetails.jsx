@@ -13,6 +13,8 @@ export default function HymnDetail({ hymn, language, onBack }) {
   const verses =
     language === 'english' ? hymn.verses_english : hymn.verses_yoruba;
 
+ const chrous =
+    language === 'english' ? hymn.chorus_english : hymn.chorus_yoruba;
   return (
     <View style={styles.container}>
       {/* HEADER */}
@@ -39,6 +41,8 @@ export default function HymnDetail({ hymn, language, onBack }) {
           <View key={index} style={styles.verseContainer}>
             <Text style={styles.verseNumber}>Verse {index + 1}</Text>
             <Text style={styles.verseText}>{verse}</Text>
+            <Text style={styles.verseText}>{chrous}</Text>
+
           </View>
         ))}
       </ScrollView>

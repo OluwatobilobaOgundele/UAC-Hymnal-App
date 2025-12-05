@@ -49,15 +49,19 @@ export default function HymnList({ language, onSelectHymn, onBack }) {
       return;
     }
 
-    const t = text.toLowerCase();
+    const t = text.trim().toLowerCase();
 
-    // Search by number
-    if (!isNaN(text)) {
-      const num = parseInt(text);
+    // Search by number first
+    if (!isNaN(text.trim()) && text.trim() !== '') {
+      const num = parseInt(text.trim(), 10);
       const match = hymns.find(h => h.id === num);
-      setFilteredHymns(match ? [match] : []);
+      if (match) {
+        setFilteredHymns([match]);
+        return;
+      }
     }
 
+    // Search by title and verses
     const results = hymns.filter(hymn => {
       const title =
         language === "english"
@@ -79,11 +83,10 @@ export default function HymnList({ language, onSelectHymn, onBack }) {
 
     // 🔎 Suggestions (top 6 titles)
     const suggestionMatches = hymns
-      .filter(h =>
-        (language === "english" ? h.title_english : h.title_yoruba)
-          .toLowerCase()
-          .includes(t)
-      )
+      .filter(h => {
+        const title = language === "english" ? h.title_english : h.title_yoruba;
+        return title.toLowerCase().includes(t);
+      })
       .slice(0, 6);
 
     setSuggestions(suggestionMatches);
@@ -173,12 +176,20 @@ export default function HymnList({ language, onSelectHymn, onBack }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F5F5F5' },
+  
+  centerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5F5F5',
+  },
 
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#8B0000',
-    paddingTop: 30,
+    paddingTop: 50,
+    paddingBottom: 16,
     paddingHorizontal: 16,
   },
   backButton: { marginRight: 16 },

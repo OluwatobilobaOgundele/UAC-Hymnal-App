@@ -16,10 +16,11 @@
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/icon1.jpg",
         "backgroundImage": "./assets/images/icon1.jpg",
-        "monochromeImage":"./assets/images/icon1.jpg"
+        "monochromeImage": "./assets/images/icon1.jpg"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.tobiloba557.UACHymnalApp"
     },
     "web": {
       "output": "static",
@@ -30,7 +31,7 @@
       [
         "expo-splash-screen",
         {
-          "image":"./assets/images/icon1.jpg",
+          "image": "./assets/images/icon1.jpg",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
@@ -43,6 +44,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "52a38ad4-f5ca-491b-8427-9166c1d1d47e"
+      }
     }
   }
 }
