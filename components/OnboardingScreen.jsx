@@ -1,8 +1,11 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image } from 'react-native';
 
-export default function OnboardingScreen({ message, isLast, onNext }) {
+export default function OnboardingScreen({ message, isLast, onNext, img }) {
   return (
-    <View style={styles.container}>
+    <ImageBackground source={img} resizeMode="cover" style={styles.container}>
+      
+      {/* Optional dark overlay for readability */}
+      <View style={styles.overlay} />
 
       {/* Logo */}
       <View style={styles.logoCircle}>
@@ -12,7 +15,7 @@ export default function OnboardingScreen({ message, isLast, onNext }) {
         />
       </View>
 
-      {/* Message */}
+      {/* Message & Pagination */}
       <View style={styles.content}>
         <Text style={styles.message}>{message}</Text>
 
@@ -29,32 +32,37 @@ export default function OnboardingScreen({ message, isLast, onNext }) {
         </Text>
       </TouchableOpacity>
 
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#D3D3D3',
     paddingTop: 60,
     paddingBottom: 40,
     paddingHorizontal: 20,
+    justifyContent: 'space-between',
+  },
+
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.25)', // Light overlay for better readability
   },
 
   /** Logo Circle */
   logoCircle: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: '#FFFFFF',
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    backgroundColor: 'rgba(255,255,255,0.85)',
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    marginBottom: 20,
+    marginTop: 20,
+    elevation: 5,
   },
 
-  /** Actual resized logo */
   logoImage: {
     width: 70,
     height: 70,
@@ -67,46 +75,53 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 20,
   },
 
   message: {
-    fontSize: 38,
+    fontSize: 32,
     fontFamily: 'Georgia',
     fontStyle: 'italic',
-    color: '#000000',
+    color: '#fff',
     textAlign: 'center',
     marginBottom: 40,
+    lineHeight: 45,
+    textShadowColor: '#000',
+    textShadowOpacity: 0.3,
+    textShadowRadius: 8,
   },
 
   /** Pagination dots */
   pagination: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 10,
   },
 
   dot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: '#000000',
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: '#fff',
   },
 
   dotInactive: {
-    backgroundColor: '#999999',
+    backgroundColor: '#cccccc',
   },
 
   /** Button */
   button: {
-    backgroundColor: '#FFFFFF',
-    paddingVertical: 16,
-    paddingHorizontal: 32,
-    borderRadius: 8,
+    backgroundColor: '#ffffff',
+    paddingVertical: 18,
+    borderRadius: 10,
     alignItems: 'center',
+    width: '100%',
+    alignSelf: 'center',
+    elevation: 5,
   },
 
   buttonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#000000',
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#000',
   },
 });

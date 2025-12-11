@@ -1,18 +1,19 @@
-import { useEffect } from 'react';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
+import { Stack } from "expo-router";
+import 'react-native-reanimated';
 
 
 export default function RootLayout() {
-  
-
   return (
-    <>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </>
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="splash" />
+      <Stack.Screen name="Onboarding1" />
+      <Stack.Screen name="Onboarding2" />
+      <Stack.Screen name="language" />
+       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="hymnList" />
+      <Stack.Screen name="hymnDetail" />
+     
+       <Stack.Screen name="not-found" />
+    </Stack>
   );
 }
